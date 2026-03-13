@@ -1,0 +1,156 @@
+<table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#dddddd">
+<tr>
+<td style="padding:30px 0;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border:1px solid #dddddd;border-collapse:collapse;word-wrap:break-word;">
+
+<!-- Header -->
+<tr>
+<td align="center" bgcolor="#000000" style="padding:20px 0;">
+{{LOGO_HTML}}
+</td>
+</tr>
+
+<!-- Title -->
+<tr>
+<td bgcolor="#ffffff" style="padding:20px 30px;">
+<p style="margin:10px 0 20px;font-size:24px;text-align:center;font-weight:bold;border-bottom:2px solid #ddd;padding-bottom:12px;font-family:Arial,sans-serif;">
+Invoice Receipt
+</p>
+
+<p style="font-family:Arial,sans-serif;font-size:16px;color:#000;line-height:24px;margin:0;">
+Hello <b>{{CUSTOMER_NAME}}</b>,
+</p>
+
+<p style="font-family:Arial,sans-serif;font-size:16px;color:#000;line-height:24px;margin:10px 0;">
+Thank you for your payment. This email confirms that we have received your payment for your caravan build.
+</p>
+
+</td>
+</tr>
+
+<!-- Invoice Details -->
+<tr>
+<td bgcolor="#ffffff" style="padding:0 30px 30px 30px;">
+<table style="border-collapse:collapse;width:100%;font-family:Arial,sans-serif;">
+
+<tr>
+<th colspan="2" style="border:1px solid #8eaadb;background:#d9e2f3;padding:10px;text-align:left;font-size:17px;">
+Invoice Details
+</th>
+</tr>
+
+<tr>
+<td style="border:1px solid #8eaadb;padding:10px;font-weight:bold;width:200px;">Invoice Number</td>
+<td style="border:1px solid #8eaadb;padding:10px;">{{INVOICE_NUMBER}}</td>
+</tr>
+
+<tr>
+<td style="border:1px solid #8eaadb;padding:10px;font-weight:bold;">Caravan</td>
+<td style="border:1px solid #8eaadb;padding:10px;">{{CARAVAN_NAME}}</td>
+</tr>
+
+<tr>
+<td style="border:1px solid #8eaadb;padding:10px;font-weight:bold;">Amount Paid</td>
+<td style="border:1px solid #8eaadb;padding:10px;">{{AMOUNT_PAID}}</td>
+</tr>
+
+<tr>
+<td style="border:1px solid #8eaadb;padding:10px;font-weight:bold;">Date Paid</td>
+<td style="border:1px solid #8eaadb;padding:10px;">{{DATE_PAID}}</td>
+</tr>
+
+<tr>
+<td style="border:1px solid #8eaadb;padding:10px;font-weight:bold;">Remaining Balance</td>
+<td style="border:1px solid #8eaadb;padding:10px;background:{{REMAINING_BALANCE_BG}};color:{{REMAINING_BALANCE_COLOR}};font-weight:bold;">
+{{REMAINING_BALANCE}}
+</td>
+</tr>
+
+<tr>
+<td style="border:1px solid #8eaadb;padding:10px;font-weight:bold;">Total Build Price</td>
+<td style="border:1px solid #8eaadb;padding:10px;">{{TOTAL_AMOUNT}}</td>
+</tr>
+
+</table>
+</td>
+</tr>
+
+<!-- Payment Summary -->
+<tr>
+<td bgcolor="#ffffff" style="padding:0 30px 25px 30px;">
+<table style="border-collapse:collapse;width:100%;font-family:Arial,sans-serif;">
+
+<tr>
+<th colspan="2" style="border:1px solid #8eaadb;background:#d9e2f3;padding:10px;text-align:left;font-size:17px;">
+Payment Summary
+</th>
+</tr>
+
+<tr>
+<td style="border:1px solid #8eaadb;padding:10px;font-weight:bold;">Sub Total</td>
+<td style="border:1px solid #8eaadb;padding:10px;">{{SUB_TOTAL}}</td>
+</tr>
+
+{{#if TAX_AMOUNT}}
+<tr>
+<td style="border:1px solid #8eaadb;padding:10px;font-weight:bold;">GST (10%)</td>
+<td style="border:1px solid #8eaadb;padding:10px;">{{TAX_AMOUNT}}</td>
+</tr>
+{{/if}}
+
+<tr>
+<td style="border:1px solid #8eaadb;padding:10px;font-weight:bold;background:#f5f5f5;">Total</td>
+<td style="border:1px solid #8eaadb;padding:10px;font-weight:bold;background:#f5f5f5;">{{TOTAL}}</td>
+</tr>
+
+</table>
+</td>
+</tr>
+
+<!-- Button -->
+<tr>
+<td bgcolor="#fcfcfc" style="padding:25px 30px;border-top:1px solid #dddddd;">
+<table width="100%">
+<tr>
+<td align="center">
+
+<a href="{{INVOICE_PDF_URL}}" 
+style="color:#ffffff;text-decoration:none;padding:14px 30px;background:#000000;font-family:Arial,sans-serif;font-weight:bold;border-radius:6px;display:inline-block;text-transform:uppercase;font-size:16px;" 
+target="_blank">
+
+DOWNLOAD INVOICE PDF
+
+</a>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<!-- Footer -->
+<tr>
+<td bgcolor="#ffffff" style="padding:25px;border-top:1px solid #dddddd;">
+<table width="100%">
+<tr>
+<td style="font-family:Arial,sans-serif;font-size:12px;color:#000;text-align:center;line-height:22px;">
+
+<p style="margin:0;">
+If you have any questions please contact us at 
+<a href="mailto:{{SITE_EMAIL}}">{{SITE_EMAIL}}</a>
+</p>
+
+<p style="margin-top:6px;">
+Copyright © {{YEAR}} {{SITE_NAME}}. All rights reserved.
+</p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+</table>
+</td>
+</tr>
+</table>
