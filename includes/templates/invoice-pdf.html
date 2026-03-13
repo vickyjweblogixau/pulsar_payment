@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: Arial, sans-serif; font-size:12px; color:#222; }
+
+    /* ── Header band ── */
+    .header-band { background:#1a1a2e; color:#fff; padding:22px 30px 18px; }
+    .header-band table { width:100%; border-collapse:collapse; }
+    .header-band .logo-cell { vertical-align:middle; }
+    .header-band .logo-cell img { max-height:60px; }
+    .header-band .logo-cell .site-name { font-size:22px; font-weight:bold; letter-spacing:1px; }
+    .header-band .logo-cell .tagline { font-size:9px; letter-spacing:2px; color:#aaa; margin-top:3px; text-transform:uppercase; }
+    .header-band .contact-cell { text-align:right; vertical-align:middle; font-size:11px; line-height:18px; color:#aaa; }
+
+    /* ── Title bar ── */
+    .title-bar { background:#f0f4fb; border-bottom:3px solid #1a1a2e; padding:12px 30px; }
+    .title-bar table { width:100%; border-collapse:collapse; }
+    .title-bar .title-cell { font-size:26px; font-weight:bold; color:#1a1a2e; vertical-align:middle; letter-spacing:3px; }
+    .title-bar .meta-cell { text-align:right; vertical-align:middle; font-size:11px; line-height:20px; }
+    .title-bar .meta-cell strong { color:#1a1a2e; }
+
+    /* ── Body ── */
+    .body-wrap { padding:22px 30px; }
+
+    /* ── Two-column info ── */
+    .info-table { width:100%; border-collapse:collapse; margin-bottom:20px; }
+    .info-table td { vertical-align:top; width:50%; }
+    .info-table td:first-child { padding-right:16px; }
+    .info-table td:last-child { padding-left:16px; }
+    .info-box-title { font-size:10px; font-weight:bold; text-transform:uppercase; letter-spacing:1.5px; color:#1a1a2e; border-bottom:2px solid #1a1a2e; padding-bottom:4px; margin-bottom:8px; }
+    .info-box-body { font-size:12px; line-height:20px; }
+    .info-box-body strong { color:#000; }
+    .info-box-body .small { font-size:11px; color:#555; }
+
+    /* ── Items table ── */
+    .items-table { width:100%; border-collapse:collapse; margin-bottom:18px; }
+    .items-table thead tr th { background:#1a1a2e; color:#fff; font-size:10px; text-transform:uppercase; letter-spacing:0.5px; padding:9px 12px; text-align:left; }
+    .items-table thead tr th.right { text-align:right; }
+    .items-table thead tr th.center { text-align:center; }
+    .items-table tbody tr td { padding:9px 12px; border-bottom:1px solid #f0f0f0; font-size:12px; vertical-align:top; }
+    .items-table tbody tr:nth-child(even) td { background:#f9fafb; }
+    .items-table tbody tr td.right { text-align:right; font-weight:700; }
+    .items-table tbody tr td.center { text-align:center; color:#555; }
+    .items-table tbody tr td .due-date { font-size:10px; color:#888; }
+    .items-table tbody tr td .paid-badge { display:inline-block; background:#d4edda; color:#155724; border-radius:10px; padding:1px 8px; font-size:9px; font-weight:600; }
+
+    /* ── Totals ── */
+    .items-table tfoot tr td { padding:8px 12px; font-size:12px; }
+    .items-table tfoot .subtotal-row td { border-top:2px solid #e5e7eb; color:#555; }
+    .items-table tfoot .gst-row td { color:#555; border-bottom:1px solid #f0f0f0; }
+    .items-table tfoot .total-row td { background:#1a1a2e; color:#fff; font-size:14px; font-weight:bold; padding:10px 12px; }
+    .items-table tfoot td.right { text-align:right; }
+
+    /* ── Footer ── */
+    .footer-band { background:#f0f4fb; border-top:3px solid #1a1a2e; padding:14px 30px; text-align:center; margin-top:10px; }
+    .footer-band .thank-you { font-size:14px; font-weight:bold; color:#1a1a2e; margin-bottom:4px; }
+    .footer-band .contact-line { font-size:11px; color:#555; }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER BAND ═══ -->
+<div class="header-band">
+    <table><tr>
+        <td class="logo-cell">
+            {{LOGO_HTML}}
+            {{TAGLINE_HTML}}
+        </td>
+        <td class="contact-cell">
+            {{COMPANY_PHONE_TEXT}}
+            {{COMPANY_EMAIL_TEXT}}
+            {{COMPANY_WEBSITE_TEXT}}
+        </td>
+    </tr></table>
+</div>
+
+<!-- ═══ TITLE BAR ═══ -->
+<div class="title-bar">
+    <table><tr>
+        <td class="title-cell">{{TITLE_TEXT}}</td>
+        <td class="meta-cell">
+            <strong>Invoice #:</strong> {{INVOICE_NUMBER}}<br>
+            <strong>Date:</strong> {{INVOICE_DATE}}<br>
+        </td>
+    </tr></table>
+</div>
+
+<!-- ═══ BODY ═══ -->
+<div class="body-wrap">
+
+    <!-- Invoice To + Payment Info -->
+    <table class="info-table"><tr>
+        <td>
+            <div class="info-box-title">{{BILL_TO_LABEL}}</div>
+            <div class="info-box-body">
+                <strong>{{CUSTOMER_NAME}}</strong><br>
+                {{CUSTOMER_EMAIL_TEXT}}
+                {{CUSTOMER_PHONE_TEXT}}
+                {{CARAVAN_TEXT}}
+            </div>
+        </td>
+        <td>
+            <div class="info-box-title">Payment Info</div>
+            <div class="info-box-body">
+                {{BANK_ROWS}}
+            </div>
+        </td>
+    </tr></table>
+
+    <!-- Items Table -->
+    <table class="items-table">
+        <thead><tr>
+            <th style="width:10%;" class="center">SL.</th>
+            <th>Project Description</th>
+            <th style="width:35%;" class="right">Project Fees</th>
+        </tr></thead>
+        <tbody>
+            {{TERMS_ROWS}}
+        </tbody>
+        <tfoot>
+            <tr class="subtotal-row">
+                <td colspan="2" class="right">Sub Total (ex. tax):</td>
+                <td class="right">{{SUB_TOTAL}}</td>
+            </tr>
+            <tr class="gst-row">
+                <td colspan="2" class="right">GST:</td>
+                <td class="right">{{GST_AMOUNT}}</td>
+            </tr>
+            <tr class="total-row">
+                <td colspan="2" class="right">Total (Inc. GST):</td>
+                <td class="right" style="font-size:15px;font-weight:900;">{{GRAND_TOTAL}}</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer-band">
+    <div class="thank-you">{{INVOICE_NOTES}}</div>
+    <div class="contact-line">{{FOOTER_CONTACT}}</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Receipt – {{SITE_NAME}}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#e9e9e9;font-family:Arial,Helvetica,sans-serif;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background:#e9e9e9;padding:30px 0;">
+    <tr>
+        <td align="center">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="600"
+                   style="background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.12);">
+
+                <!-- Header -->
+                <tr>
+                    <td style="background:#1a1a2e;padding:20px 28px;">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="vertical-align:middle;">{{LOGO_HTML}}</td>
+                                <td style="text-align:right;vertical-align:middle;">
+                                    <div style="font-size:10px;letter-spacing:2px;color:#aaa;text-transform:uppercase;">Payment Receipt</div>
+                                    <div style="font-size:20px;font-weight:900;color:#fff;letter-spacing:2px;margin-top:3px;">{{INVOICE_NUMBER}}</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- Green stripe -->
+                <tr><td style="background:#16a34a;height:5px;font-size:0;line-height:0;">&nbsp;</td></tr>
+
+                <!-- Greeting -->
+                <tr>
+                    <td style="padding:24px 28px 0;">
+                        <p style="margin:0 0 6px;font-size:16px;color:#000;">Hi <strong>{{CUSTOMER_NAME}}</strong>,</p>
+                        <p style="margin:0;font-size:14px;color:#555;line-height:22px;">
+                            We have received your payment for <strong>{{CARAVAN_NAME}}</strong>.
+                            Please find your receipt details below.
+                        </p>
+                    </td>
+                </tr>
+
+                <!-- Receipt Detail Table -->
+                <tr>
+                    <td style="padding:20px 28px;">
+                        <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+                            <tr style="background:#1a1a2e;">
+                                <th colspan="2" style="padding:10px 14px;font-size:12px;text-align:left;
+                                    color:#fff;letter-spacing:1px;text-transform:uppercase;font-weight:700;">
+                                    Receipt Details
+                                </th>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px 14px;font-size:13px;font-weight:600;color:#555;
+                                    border-bottom:1px solid #f0f0f0;width:180px;">Invoice Number</td>
+                                <td style="padding:10px 14px;font-size:13px;font-weight:700;color:#000;
+                                    border-bottom:1px solid #f0f0f0;"><strong>{{INVOICE_NUMBER}}</strong></td>
+                            </tr>
+                            <tr style="background:#f9fafb;">
+                                <td style="padding:10px 14px;font-size:13px;font-weight:600;color:#555;
+                                    border-bottom:1px solid #f0f0f0;">Payment Term</td>
+                                <td style="padding:10px 14px;font-size:13px;color:#000;
+                                    border-bottom:1px solid #f0f0f0;">{{TERM_NAME}}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px 14px;font-size:13px;font-weight:600;color:#555;
+                                    border-bottom:1px solid #f0f0f0;">Sub Total (ex. tax)</td>
+                                <td style="padding:10px 14px;font-size:13px;font-weight:700;color:#000;
+                                    border-bottom:1px solid #f0f0f0;">{{AMOUNT_PAID}}</td>
+                            </tr>
+                            <tr style="background:#f9fafb;">
+                                <td style="padding:10px 14px;font-size:13px;font-weight:600;color:#555;
+                                    border-bottom:1px solid #f0f0f0;">GST</td>
+                                <td style="padding:10px 14px;font-size:13px;font-weight:700;color:#000;
+                                    border-bottom:1px solid #f0f0f0;">{{GST_AMOUNT}}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px 14px;font-size:13px;font-weight:600;color:#555;
+                                    border-bottom:1px solid #f0f0f0;">Amount Paid (Inc. GST)</td>
+                                <td style="padding:10px 14px;font-size:22px;font-weight:900;color:#16a34a;
+                                    border-bottom:1px solid #f0f0f0;">{{AMOUNT_PAID_INC_GST}}</td>
+                            </tr>
+                            <tr style="background:#f9fafb;">
+                                <td style="padding:10px 14px;font-size:13px;font-weight:600;color:#555;
+                                    border-bottom:1px solid #f0f0f0;">Date Paid</td>
+                                <td style="padding:10px 14px;font-size:13px;color:#000;
+                                    border-bottom:1px solid #f0f0f0;">{{DATE_PAID}}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px 14px;font-size:13px;font-weight:600;color:#555;
+                                    border-bottom:1px solid #f0f0f0;">Total Invoice Value (Inc. GST)</td>
+                                <td style="padding:10px 14px;font-size:13px;font-weight:700;color:#000;
+                                    border-bottom:1px solid #f0f0f0;">{{TOTAL_AMOUNT_INC_GST}}</td>
+                            </tr>
+                            <tr style="background:{{REMAINING_BALANCE_BG}};">
+                                <td style="padding:10px 14px;font-size:13px;font-weight:700;
+                                    color:{{REMAINING_BALANCE_COLOR}};">Remaining Balance (Inc. GST)</td>
+                                <td style="padding:10px 14px;font-size:18px;font-weight:900;
+                                    color:{{REMAINING_BALANCE_COLOR}};">{{REMAINING_BALANCE_INC_GST}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- Note -->
+                <tr>
+                    <td style="padding:0 28px 20px;">
+                        <div style="background:#fff8e1;border-left:4px solid #f9a825;padding:12px 16px;border-radius:0 6px 6px 0;">
+                            <p style="margin:0;font-size:13px;color:#555;line-height:22px;">
+                                <strong>📌 Note:</strong> Please keep this receipt for your records.
+                                Log in to your dashboard to view your full payment history.
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- CTA -->
+                <tr>
+                    <td style="padding:0 28px 24px;text-align:center;">
+                        <a href="{{DASHBOARD_URL}}"
+                           style="display:inline-block;background:#000;color:#fff;
+                                  padding:13px 32px;border-radius:6px;text-decoration:none;
+                                  font-size:15px;font-weight:700;">
+                            Login
+                        </a>
+                    </td>
+                </tr>
+
+                <!-- Footer note -->
+                <tr>
+                    <td style="padding:0 28px 20px;">
+                        <p style="margin:0;font-size:13px;color:#555;line-height:22px;">
+                            Questions? Contact us at
+                            <a href="mailto:{{SITE_EMAIL}}" style="color:#000;">{{SITE_EMAIL}}</a>
+                        </p>
+                    </td>
+                </tr>
+
+                <!-- Copyright -->
+                <tr>
+                    <td style="background:#1a1a2e;padding:14px 28px;text-align:center;">
+                        <p style="margin:0;font-size:11px;color:#888;">
+                            Copyright &copy; {{YEAR}} {{SITE_NAME}}. All rights reserved.
+                        </p>
+                    </td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
